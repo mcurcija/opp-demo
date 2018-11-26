@@ -5,3 +5,5 @@
 /.classpath
 /build/
 /gradle/
+/gradlew
+/gradlew.bat
