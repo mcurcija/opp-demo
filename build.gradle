@@ -13,6 +13,7 @@ dependencies {
 	compile 'org.glassfish.jersey.inject:jersey-hk2:2.27'
 	compile 'org.glassfish.jersey.media:jersey-media-json-processing:2.27'
 	compile 'org.glassfish.jersey.media:jersey-media-json-binding:2.27'
+	compile 'commons-io:commons-io:2.6'
 
     testImplementation 'junit:junit:4.12'
 }

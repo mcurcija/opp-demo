@@ -11,7 +11,6 @@ public class OPPClient {
 
 	public OPPResponse initCheckout() {
 		Client client = ClientBuilder.newClient();
-
 		WebTarget target = client.target("https://test.oppwa.com/v1/checkouts");
 		Form data = new Form();
 		data.param("authentication.userId", "8a8294174e735d0c014e86d5e0ee217b");
@@ -22,6 +21,20 @@ public class OPPClient {
 		data.param("paymentType", "PA");
 		OPPResponse response = target.request(MediaType.APPLICATION_JSON).post(Entity.form(data), OPPResponse.class);
 		System.out.println("OPPClient.initCheckout(): " + response);
+		return response;
+	}
+	
+	public OPPResponse getDetails(String checkoutId) 
+	{
+		Client client = ClientBuilder.newClient();
+		WebTarget target = client.target("https://test.oppwa.com/v1/checkouts/" + checkoutId + "/payment");
+		// auth params 
+		target.queryParam("authentication.userId", "8a8294174e735d0c014e86d5e0ee217b");
+		target.queryParam("authentication.password", "74nrfbej8a");
+		target.queryParam("authentication.entityId", "8a8294174e735d0c014e86d5e0db2177");
+		
+		OPPResponse response = target.request(MediaType.APPLICATION_JSON).get(OPPResponse.class);
+		System.out.println("OPPClient.getDetails(): " + response);
 		return response;
 	}
 	

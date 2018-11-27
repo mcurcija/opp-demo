@@ -1,6 +1,7 @@
 package com.example.opp.app;
 
-import java.util.Collections;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.ws.rs.ApplicationPath;
@@ -15,6 +16,6 @@ public class DemoApplication extends Application {
 	
 	@Override
 	public Set<Class<?>> getClasses() {
-		return Collections.singleton(PaymentRS.class);
+		return new HashSet<>(Arrays.asList(InitPaymentRS.class, ProcessPaymentRS.class));
 	}
 }

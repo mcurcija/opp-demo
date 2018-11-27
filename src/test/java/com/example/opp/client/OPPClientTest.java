@@ -7,9 +7,12 @@ import org.junit.Test;
 public class OPPClientTest {
 
 	@Test
-	public void init() {
-		OPPResponse response = new OPPClient().initCheckout();
-		assertNotNull(response.id);
+	public void initAndGetDetails() {
+		OPPClient oppClient = new OPPClient();
+		OPPResponse initResponse = oppClient.initCheckout();
+		assertNotNull(initResponse.id);
+		OPPResponse detailsResponse = oppClient.getDetails(initResponse.id);
+		assertNotNull(detailsResponse.id);
 	}
 
 }
